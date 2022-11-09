@@ -1,12 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-  msg: string;
+  name: string;
 }>();
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="primacc">{{ msg }}</h1>
+    <h1 class="primacc">{{ name }}</h1>
     <h3>
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +

@@ -14,11 +14,11 @@ import Navigation from "./components/Navigation.vue";
     />
 
     <div class="wrapper">
-      <Navigation msg="You did it! lmao" />
+      <Navigation name="Lucy Hoerner" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/socials">Socials</RouterLink>
       </nav>
     </div>
   </header>
