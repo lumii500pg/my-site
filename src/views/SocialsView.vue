@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="socials">
     <h1>This is an socials page</h1>

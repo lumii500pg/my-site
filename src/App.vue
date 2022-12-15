@@ -1,29 +1,53 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RouterLink, RouterView } from "vue-router";
 import Navigation from "./components/Navigation.vue";
 </script>
 
 <template>
   <header>
+    <v-app :dark="theme">
+      <v-btn aria-label="Toggle themes" @click="toggleTheme">
+        <span v-if="this.theme === 'darkMode'"> Light</span>
+        <span v-else> Dark</span>
+      </v-btn>
+    </v-app>
     <img
       alt="My Logo"
       class="logo"
+      height="125"
       src="@/assets/logo.svg"
       width="125"
-      height="125"
     />
 
     <div class="wrapper">
       <Navigation name="Lucy Hoerner" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/portfolio">Portfolio</RouterLink>
         <RouterLink to="/socials">Socials</RouterLink>
       </nav>
     </div>
   </header>
   <RouterView />
 </template>
+
+<script lang="ts">
+export default {
+  data() {
+    return {
+      theme: "",
+    };
+  },
+  methods: {
+    toggleTheme() {
+      this.theme = this.theme == "darkMode" ? "" : "darkMode"; //toggles theme value
+      document.documentElement.setAttribute("data-theme", this.theme); // sets the data-theme attribute
+      localStorage.setItem("theme", this.theme); // stores theme value on local storage
+    },
+    mounted() {},
+  },
+};
+</script>
 
 <style scoped>
 header {
@@ -82,7 +106,6 @@ nav a:first-of-type {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
   }
